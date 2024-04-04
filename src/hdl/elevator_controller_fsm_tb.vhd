@@ -11,11 +11,11 @@
 --| ---------------------------------------------------------------------------
 --|
 --| FILENAME      : MooreElevatorController_tb.vhd (TEST BENCH)
---| AUTHOR(S)     : Capt Phillip Warner, Capt Dan Johnson, **Your Name Here**
+--| AUTHOR(S)     : Capt Phillip Warner, Capt Dan Johnson, C3C Jana Algharaibeh
 --| CREATED       : 03/2017 Last modified on 06/24/2020
 --| DESCRIPTION   : This file tests the Moore elevator controller module
 --|
---| DOCUMENTATION : None
+--| DOCUMENTATION : C3C Shin told me to include staying on the floors in my logic and helped with line 109 of the tb.
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -106,8 +106,8 @@ begin
 		w_reset <= '0'; 
 		  wait for k_clk_period;
 		-- active UP signal
-		w_up_down <= '1'; 
-		
+		w_up_down <= '1'; wait for k_clk_period * 2;
+		   assert w_floor = "0011" report "bad up from floor2" severity failure;
 		-- stay on each o_floor for 2 cycles and then move up to the next o_floor
         w_stop <= '1';  wait for k_clk_period * 2;
             assert w_floor = "0011" report "bad wait on floor3" severity failure;
