@@ -27,3 +27,5 @@ env:
 If successful then GHDL will quietly exit with a `0` code.
 If any of the `assert` statements fail **with** `severity failure` then GHDL will cease the simulation and exit with non-zero code; this will also cause the workflow to fail.
 Assert statements of other severity levels, such as "error" w
+
+![ICE5 Waveform](https://github.com/janaqusai/ece281-ice5/assets/156135874/4b56ce97-3561-470d-8a9b-2b8d7f3a4598)
